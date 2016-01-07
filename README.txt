@@ -49,10 +49,10 @@ where infile.csv indicates the input file in CSV format and ncluster indicates t
 
 Option:
    -d	# switches on the Del option
-In all mutants, one end of the mapping region is always considered Ågpresent.Åh When the Del option is on, the opposite end of the region is considered Ågdeleted,Åh otherwise, this opposite end would be considered in the same state as the neighboring markers (regarded as selecting the Any option).
+In all mutants, one end of the mapping region is always considered "present." When the Del option is on, the opposite end of the region is considered "deleted," otherwise, this opposite end would be considered in the same state as the neighboring markers (regarded as selecting the Any option).
 
 Output files:
-clusterinput.pl generates a folder named ÅginfileÅh (depending on the name of the input file), in which the following files are generated.
+clusterinput.pl generates a folder named "infile" (depending on the name of the input file), in which the following files are generated.
    infile/infile.cluster.csv	# input file in which the information for correspondence relations between  markers and virtual markers is added
    infile/infile.input.csv	# input file for DelMapper
    # The following six files are components of the main program of DelMapper.
@@ -63,7 +63,7 @@ clusterinput.pl generates a folder named ÅginfileÅh (depending on the name of th
    infile/Utility.cpp
    infile/Utility.h
 
-(b) All cpp files are compiled into an executable file as the main program of DelMapper. The execution of the program does not need any parameters. DelMapper calculates the Ågtotal costÅh values for all permutations of the virtual markers. When Ågtotal costÅh for one permutation is equal to or less than the previous one, DelMapper adds a line including the permutation and its Ågtotal costÅh as a temporary best score to the output file.
+(b) All cpp files are compiled into an executable file as the main program of DelMapper. The execution of the program does not need any parameters. DelMapper calculates the "total cost" values for all permutations of the virtual markers. When "total cost" for one permutation is equal to or less than the previous one, DelMapper adds a line including the permutation and its "total cost" as a temporary best score to the output file.
 
 Input files:
    infile.input.csv
@@ -82,7 +82,7 @@ Syntax:
 Output files:
    infile.out.csv
 
-DelMapper outputs a CSV file, in which each line records the marker permutations with the temporarybest scores. The first column is ÅgNÅh if the temporary best score is renewed; otherwise, it is ÅgE.Åh The remaining columns indicate permutations of the virtual markers. Note that the numbers in the permutations do not indicate the names of virtual markers, but rather the order of the virtual markers in the input file (infile.cluster.csv). The last column represents the temporarybest score of the permutations in that row.
+DelMapper outputs a CSV file, in which each line records the marker permutations with the temporarybest scores. The first column is "N" if the temporary best score is renewed; otherwise, it is "E." The remaining columns indicate permutations of the virtual markers. Note that the numbers in the permutations do not indicate the names of virtual markers, but rather the order of the virtual markers in the input file (infile.cluster.csv). The last column represents the temporarybest score of the permutations in that row.
 
 (c) The Perl script makeeachcluster.pl makes input files for DelMapper to map the input markers in each virtual marker. The script searches infile.out.csv for the permutations with the best score and ask users to choose a permutation on which the script works.
 
@@ -100,7 +100,7 @@ Option:
    -d	# switches on the Del option as is described in step (a)
 
 Output files:
-The script makes n folders Ågoutdirectory-cnÅh and the following files appear in each folder:
+The script makes n folders "outdirectory-cn" and the following files appear in each folder:
    outdirectory-cn/outdirectory-cn.input.csv	# input file for DelMapper
    outdirectory-cn/Configure.h
    outdirectory-cn/Main.cpp
@@ -109,7 +109,7 @@ The script makes n folders Ågoutdirectory-cnÅh and the following files appear in
    outdirectory-cn/Utility.cpp
    outdirectory-cn/Utility.h
 
-(d) An executable file of the main program of DelMapper is compiled and executed in each Åginfile-cnÅh folders in the same manner as that described in step (b) except that both ends of the mapping region are the virtual markers that neighbor the virtual marker in which the order of the markers is determined. DelMapper provides the best permutation of the input markers in each virtual marker. According to the results in all virtual markers,  the order of the input markers is manually rearranged in Åginfile.cluster.csv,Åh and then the mapping is completed.
+(d) An executable file of the main program of DelMapper is compiled and executed in each "infile-cn" folders in the same manner as that described in step (b) except that both ends of the mapping region are the virtual markers that neighbor the virtual marker in which the order of the markers is determined. DelMapper provides the best permutation of the input markers in each virtual marker. According to the results in all virtual markers,  the order of the input markers is manually rearranged in "infile.cluster.csv," and then the mapping is completed.
 
 (5) LICENSE 
 Copyright (c) 2015 Kotaro Ishii, Yusuke Kazama, and Tokihiro Ikeda
